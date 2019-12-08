@@ -22,7 +22,7 @@ jobs:
           jdkVersionOption: '1.11'
           jdkArchitectureOption: 'x64'
           publishJUnitResults: false
-          tasks: 'jlink'
+          tasks: 'jlinkZip'
       - task: PublishBuildArtifacts@1
         inputs:
           pathToPublish: '$(System.DefaultWorkingDirectory)/build/distributions/${{parameters.appPackaging}}-${{parameters.platform}}.zip'

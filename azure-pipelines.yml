@@ -6,16 +6,15 @@
 trigger:
 - master
 
-pool:
-  vmImage: 'macOS-latest'
+variables:
+  appPackaging: javafxapp
 
-steps:
-- task: Gradle@2
-  inputs:
-    workingDirectory: ''
-    gradleWrapperFile: 'gradlew'
-    javaHomeOption: 'JDKVersion'
-    jdkVersionOption: '1.11'
-    jdkArchitectureOption: 'x64'
-    publishJUnitResults: false
-    tasks: 'jlink'
+jobs:
+  # MacOS
+  - template: src/main/pipeline/build-job.yml
+    parameters:
+      name: MacOS
+      platform: mac
+      appPackagaing: $(appPackaging)
+      pool:
+        vmImage: 'macOS-latest'

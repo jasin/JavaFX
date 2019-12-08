@@ -1,4 +1,3 @@
-module com.coleburt.javafx {
+module javafxapp {
     requires javafx.controls;
-    exports gui;
 }
